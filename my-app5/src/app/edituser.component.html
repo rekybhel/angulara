@@ -1,0 +1,64 @@
+ 
+<div class="container">
+    <div class="editshowmsg" style="display:none"></div>
+    <h3>Change User Details</h3>
+    <form  class="editusers" [formGroup]="erForm" (ngSubmit)="onSubmit(erForm.value)"  method="POST"  enctype="multipart/form-data">
+        
+  <div formArrayName="itemRows" class="formclone">
+    <!-- Check the correct way to iterate your form array -->
+    <div *ngFor="let itemrow of erForm.controls.itemRows.controls; let i=index"  [formGroupName]="i" >
+      
+      <div class="form-group" *ngFor="let person of data">
+        <label>Name</label>
+        <input  formControlName="fname" name="fname" class="form-control" value="{{person.name}}" required>
+      </div>
+      
+        <div class="form-group" *ngFor="let person of data">
+        <label>Email</label>
+        <input  type="email" formControlName="email" name="email" class="form-control"  value="{{person.email}}" required>
+      </div>
+       
+        <div class="form-group">
+        <label>Select Age</label>
+        <select formControlName="age" name="age"  class="form-group" required>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="28">28</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+    </select>
+      </div>
+           <div class="form-group" >
+        <label>City</label>
+        <input type="radio"  name="city" value="dehradun" required>Dehradun
+        <input type="radio"  name="city" value="Chandigarh" required>Chandigarh
+      </div> 
+        <div class="form-group" *ngFor="let person of data">
+        <label>Address</label>
+        <textarea formControlName="address" name="address" col="5" row="5" required>{{person.address}}</textarea>
+      </div>        
+        <div class="docsfile" id="docsec">
+        <label>Documents</label>
+        <input formControlName="docsfile" type="file"  name="docsfile" class="form-control">            
+        </div> 
+        <div class="form-group" *ngFor="let person of data">
+    
+        <input formControlName="id" name="id" type="hidden" value="{{person.id}}" >
+      </div>  
+       </div>
+  </div>
+   
+   <div class="multiform">
+      <input type="submit" value="submit" class="btn btn-default">
+     </div>
+</form>
+</div>
+
+ 
+

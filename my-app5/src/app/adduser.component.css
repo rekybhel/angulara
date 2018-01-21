@@ -1,0 +1,15 @@
+form {
+   margin: 5%;
+}
+
+
+.deleterow{
+  float:right;
+}
+.multiform {
+text-align:center;
+}
+
+label {
+font-size: 1.19rem;
+}

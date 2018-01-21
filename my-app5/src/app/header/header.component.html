@@ -1,0 +1,21 @@
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand">
+              <img src="assets/img/favicon.ico" class="logo">
+            </a>
+            <span class="navbar-brand">User Portals</span>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a routerLink="home" >Home</a></li>
+            <li> <a routerLink="add" >Add User</a></li>
+	  <li> <a routerLink="view" >Users</a></li>
+          <li> <a routerLink="addproducts" >Add Product</a></li>
+           
+        </ul>
+<div class="log" *ngIf="userIsLogged()"><a routerLink="#" (click)="logout();">Logout</a><a routerLink="reset">Reset Password</a></div>
+    </div>
+   
+</nav>
+  
