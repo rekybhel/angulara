@@ -1,0 +1,12 @@
+.invention {
+    padding: 20px;
+    background: #343434;
+    color: #e4e4e4;
+    
+    
+    position: fixed;
+    height: 50px;
+    bottom: 0;
+    width:100%;
+    text-align: center;
+}

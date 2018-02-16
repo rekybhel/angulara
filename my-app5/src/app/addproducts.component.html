@@ -1,0 +1,60 @@
+
+<div class="container">
+    <div class="showmsg" style="display:none"></div>
+    <h3>Add Products</h3>
+    <form class="formsmulti" [formGroup]="invoiceForm" (ngSubmit)="onSubmit(invoiceForm.value)"  method="POST"  enctype="multipart/form-data">
+  <div formArrayName="itemRows" class="formclone">
+    <!-- Check the correct way to iterate your form array -->
+    <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i">
+      <h4>Products Form #{{ i + 1 }}</h4>
+      <div class="form-group">
+        <label>Product Name</label>
+        <input  formControlName="productname" name="productname[]" class="form-control" required>      
+        
+      </div>
+       
+        <div class="form-group" >
+        <label>Price</label>
+      
+        <input type="text" formControlName="price" name="price[]" class="form-control" required>
+      </div>
+          <div class="form-group">
+        <label>Product Category</label>
+        <select formControlName="category_id" name="category_id[]"  class="form-group" required>
+        <option value="1">Vintage</option>
+        <option value="2">Home & Living</option>
+        <option value="3">Digital Downloads</option>
+        <option value="4">Electronics</option>
+        <option value="5">Jewellery</option>
+        <option value="6">Accessories</option>
+        <option value="7">Clothing</option>
+     
+    </select>
+      </div>
+           <div class="form-group">
+        <label>Product Type</label>
+        <input type="checkbox"  name="ptype[]" value="simple" >Simple
+        <input type="checkbox"  name="ptype[]" value="configurable" >Configurable
+      </div> 
+        <div class="form-group">
+        <label>Product Details</label>
+        <textarea formControlName="product_details" name="product_details[]" col="5" row="5" required></textarea>
+      </div>        
+        <div class="docsfile" id="docsec{{i}}">
+        <label>Product images:</label>
+        <input formControlName="docsfile" type="file"  name="docsfile[{{i}}][]" class="form-control" required>            
+        </div>
+           <button type="button" id="{{i}}" onclick="customAddFunction(this.id);">+</button>     
+        <div class="deleterow">
+        <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">-Remove</button>
+        </div>
+       </div>
+  </div>
+   <button type="button" (click)="addNewRow()" class="btn btn-primary">+Add</button>
+   <div class="multiform">
+      <input type="submit" value="submit" class="btn btn-default">
+     </div>
+</form>
+</div>
+
+ 
