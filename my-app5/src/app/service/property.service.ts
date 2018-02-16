@@ -15,7 +15,7 @@ export class PropertyService {
         return this.http.get('/api/users/' + id, this.jwt()).map((response: Response) => response.json());
     }
 
-    create(property: Property) {
+    create(property: string) {
 	 let headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded'});
         return this.http.post('http://127.0.0.1:8000/an_addproperties_add', property, {
     headers: headers

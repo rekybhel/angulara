@@ -1,6 +1,6 @@
 function customAddFunction(a) {
     var oid = a;
-    var str = '<div><label>Documents</label><input formControlName="itemname" name=docsfile[' + a + '][] type="file" class="form-control"><button type="button" id="vvv" onclick="customRemoveFunction(this);">-</button></div> ';
+    var str = '<div><label>Documents</label><input formControlName="docsfile" name="files" type="file" class="form-control" (change)="handleFileInput($event.target.files)" ><button type="button" id="vvv" onclick="customRemoveFunction(this);">-</button></div> ';
     $("#docsec" + oid).append(str);
 }
 

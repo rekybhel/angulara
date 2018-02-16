@@ -23,7 +23,7 @@ export class AddpropertyComponent {
 	  post:any;                     // A property for our submitted form
 	  username:string = '';
 	  fname:string = '';
-	  docsfile:File = '';
+	  docsfile:File = null;
 	  constructor(private fb: FormBuilder,private http:Http,private route: ActivatedRoute ,private router: Router,    private propertyService: PropertyService,
         private alertService: AlertService,
         private flashMessagesService: FlashMessagesService,private authenticationService: AuthenticationService) {   	 
@@ -52,7 +52,7 @@ export class AddpropertyComponent {
     control.push(this.initItemRows());
 }
 	handleFileInput(files: FileList) {
-		this.fileToUpload = files.item(0);
+		this.fileToUpload = files;
 		console.log(this.fileToUpload);
 		this.docsfile=this.fileToUpload;
 	}
@@ -64,12 +64,12 @@ deleteRow(index: number) {
 }
   onSubmit(post) {
 
-   console.log(this.fileToUpload;);
+   console.log(this.fileToUpload);
   // this.http.post('http://192.168.0.1:8183/anurag/users/add', JSON.stringify(this.invoiceForm.value))
     //   .subscribe(res => this.data = console.log(res.json()));
 	
 	 this.loading = true;
-        this.propertyService.create(post)
+        this.propertyService.create(JSON.stringify(this.invoiceForm.value))
             .subscribe(
                 data => {
                    if (data.success){ 
