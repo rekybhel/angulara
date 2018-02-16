@@ -10,12 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 // CORS
 
 header('Access-Control-Allow-Headers:content-type'); 
                // x-xsrf-token, x-csrf-token');
 //header('Access-Control-Allow-Credentials: true');
 header('Access-Control-Allow-Origin: http://localhost:4200');
+=======
+
+
 Route::get ( '/', function () {
     return view ( 'customauth' );
 } );
@@ -24,8 +28,10 @@ Route::get ( '/', function () {
 Route::post ( '/mylogin', 'MainController@mylogin' );
 Route::post ( '/registers', 'MainController@registers');
 Route::get ( '/logouts', 'MainController@logouts' );
+<<<<<<< HEAD
 Route::post ( '/an_addproperties_add', 'AnpropertyController@store' );
 Route::post ( '/la_addproperties_add', 'LapropertyController@store' );
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();

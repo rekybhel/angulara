@@ -13,7 +13,11 @@ export class AdduserComponent {
          invoiceForm: FormGroup;
           public userData: any;
         
+
       private data;
+
+          private data;
+
 	  post:any;                     // A property for our submitted form
 	  username:string = '';
 	  fname:string = '';

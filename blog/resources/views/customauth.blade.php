@@ -109,13 +109,14 @@
 	<script>	
 openForm("Login");
 function openForm(formName) {
-   
+
     var x = document.getElementsByClassName("form");
     for (i = 0; i < x.length; i++) {
        x[i].style.display = "none";  
     }
     document.getElementById(formName).style.display = "block";  
 }
+
 $('document').ready(function(){
 var loginForm = $("#loginForm");
 $("#loginForm").submit(function(){
@@ -124,6 +125,15 @@ $("#loginForm").submit(function(){
     $.ajax({
         url:'mylogin',
         type:'OPTIONS',
+
+var loginForm = $("#loginForm");
+loginForm.submit(function(e){
+    e.preventDefault();
+    var formData = loginForm.serialize();
+
+    $.ajax({
+        url:'mylogin',
+        type:'POST',
         data:formData,
         success:function(data){
             console.log(data);
@@ -136,6 +146,8 @@ $("#loginForm").submit(function(){
 });	
 });
 
+
+});
 
 </script>
 @if (Session::has('message'))

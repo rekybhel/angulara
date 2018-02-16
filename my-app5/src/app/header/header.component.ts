@@ -12,8 +12,13 @@ export class HeaderComponent {
    public userData: any;
   constructor(private authenticationService: AuthenticationService,private router: Router) { }
   logout(){
+
    this.authenticationService.logout();
       this.router.navigate(['/login']);
+
+ //  this.authenticationService.logout();
+   //   this.router.navigate(['/login']);
+
   }
 
   userIsLogged(){

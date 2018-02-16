@@ -12,7 +12,10 @@ import { Router, ActivatedRoute } from '@angular/router';
 `],
   template: `      
        <app-header *ngIf="userIsLogged()"></app-header>
+
 	    <app-headercomman *ngIf="userIsComman()"></app-headercomman>
+
+
         <ngx-flash-messages></ngx-flash-messages>
        <router-outlet></router-outlet>
        <app-footer></app-footer>`
@@ -27,6 +30,7 @@ export class AppComponent {
     } 
      return true;
     }
+
 	  userIsComman(){
       this.userData = localStorage.getItem('currentUser')
         if(!this.userData){
@@ -34,5 +38,6 @@ export class AppComponent {
     } 
      return false;
     }
+
     ngOnInit(){ }
 }

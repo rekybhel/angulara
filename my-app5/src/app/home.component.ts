@@ -14,11 +14,20 @@ export class HomeComponent {
   public jsondata:any;
      constructor( private router: Router) { }
      ngOnInit() {
+
      //this.userData = localStorage.getItem('currentUser')
      //  if(!this.userData){
       //   this.router.navigate(['/login']);
      //  } 
     //   this.jsondata  = JSON.parse(this.userData);
     //   this.username =  this.jsondata[0].username;
+
+      // this.userData = localStorage.getItem('currentUser')
+       // if(!this.userData){
+       //  this.router.navigate(['/login']);
+    //   } 
+       this.jsondata  = JSON.parse(this.userData);
+       this.username =  this.jsondata[0].username;
+
     }
 }

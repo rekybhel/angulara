@@ -36,14 +36,22 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.model)
             .subscribe(
                 data => {
+
                  if (data.msg != 'user not found') {
 				
+
+                 if (!data.msg) {
+
                     // store user details and jwt token in local storage to keep user logged in between page refreshes
                     localStorage.setItem('currentUser', JSON.stringify(data));
                     console.log(localStorage.getItem('currentUser'));   
                    this.router.navigate(['/home']);                          
                 }
+
                     if (data.msg == 'user not found') {
+
+                    if (data.msg) {
+
                     this.flashMessagesService.show(data.msg, {
 		      classes: ['cssClass', 'alert-danger'], // You can pass as many classes as you need
 		      timeout: 3000, // Default is 3000
