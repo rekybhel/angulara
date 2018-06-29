@@ -23,3 +23,4 @@ class AnpropertyController extends Controller
     }
   
 }
+
