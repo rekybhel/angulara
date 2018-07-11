@@ -10,6 +10,7 @@
 
     <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
 	<script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
+         <link href="{{ asset('css/app.css') }}" rel="stylesheet">   
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/w3.css') }}">
     <script src="{{ asset('js/modernizr.min.js') }}"></script>
@@ -24,7 +25,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
     <div id="app">
