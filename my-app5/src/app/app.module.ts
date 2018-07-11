@@ -32,7 +32,7 @@ import { RegisterComponent } from './register.component';
 
 import { AlertService, AuthenticationService, UserService,HttpInterceptorService,PropertyService } from './service/index';
 
-import { AlertService, AuthenticationService, UserService } from './service/index';
+//import { AlertService, AuthenticationService, UserService } from './service/index';
 
 import { CommonModule } from "@angular/common";
 import { BootstrapModalModule } from 'ng2-bootstrap-modal';
@@ -99,7 +99,7 @@ const routes: Routes = [
 
   providers: [  AlertService, AuthenticationService, UserService,PropertyService,Location,HttpInterceptorService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
 
-  providers: [  AlertService, AuthenticationService, UserService,Location, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+ 
 
   bootstrap: [AppComponent],
   

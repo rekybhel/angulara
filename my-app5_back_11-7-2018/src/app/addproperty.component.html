@@ -1,0 +1,101 @@
+
+<div class="container">
+    <div class="showmsg" style="display:none"></div>
+    <h3>Add Properties</h3>
+    <form class="formsmulti" [formGroup]="invoiceForm" (ngSubmit)="onSubmit(invoiceForm.value)"  method="POST"  enctype="multipart/form-data">
+        
+  <div formArrayName="itemRows" class="formclone">
+    <!-- Check the correct way to iterate your form array -->
+    <div *ngFor="let itemrow of invoiceForm.controls.itemRows.controls; let i=index"  [formGroupName]="i">
+      <h4>Properties #{{ i + 1 }}</h4>
+      <div class="form-group">
+        <label>Location Name</label>
+        <input  formControlName="fname" name="fname[]" class="form-control" required>      
+        
+      </div>
+       <div class="form-group">
+        <label>Area</label>
+      
+        <input type="text" formControlName="area" name="area[]" class="form-control" required>
+		</div>
+		<div class="form-group">
+        <label>Location City</label>
+      
+        <input type="text" formControlName="locacity" name="locacity[]" class="form-control" required>
+		</div>
+		<div class="form-group">
+        <label>Location State</label>
+      
+        <input type="text" formControlName="locastate" name="locastate[]" class="form-control" required>
+		</div>
+		<div class="form-group">
+        <label>Location Pincode</label>
+      
+        <input type="text" formControlName="locapin" name="locapin[]" class="form-control" required>
+		</div>
+		 <div class="form-group">
+        <label>Select Price Range(Approx)</label>
+        <select formControlName="age" name="age[]"  class="form-group form-control" required>
+        <option value="20">Below 1 Lakhs</option>
+        <option value="21">1 lakhs To 5 Lakhs</option>
+        <option value="22">5 lakhs To 10 Lakhs</option>
+        <option value="23">10 lakhs To 15 Lakhs</option>
+        <option value="24">15 lakhs To 20 Lakhs/option>
+        <option value="25">20 lakhs To 25 Lakhs</option>
+        <option value="26">25 lakhs To 30 Lakhs</option>
+        <option value="27">30 lakhs To 35 Lakhs</option>
+        <option value="28">35 lakhs To 40 Lakhs</option>
+        <option value="29">40 lakhs To 45 Lakhs</option>
+        <option value="30">45 lakhs To 50 Lakhs</option>
+		<option value="30">50 lakhs To 60 Lakhs</option>
+	    <option value="30">60 lakhs To 70 Lakhs</option>
+	    <option value="30">70 lakhs To 80 Lakhs</option>
+		<option value="30">80 lakhs To 90 Lakhs</option>
+	    <option value="30">90 lakhs To 1 Cr</option>
+	    <option value="30">1 Cr lakhs To 1.25 Cr</option>
+	    <option value="30">1.25 Cr lakhs To 1.50 Cr</option>
+	    <option value="30">1.50 Cr lakhs To 1.75 Cr</option>
+	    <option value="30">1.75 Cr lakhs To 2 Crs</option>
+	    <option value="30">2 Crs lakhs To 2.5 Crs</option>
+		<option value="30">2.5 Crs lakhs To 3 Crs</option>
+		<option value="30">3 Crs lakhs To 3.5 Crs</option>
+		<option value="30">3.5 Crs lakhs To 4 Crs</option>
+		<option value="30">4 Crs lakhs To 4.5 Crs</option>
+		<option value="30">Above 5 crs</option>
+			   
+    </select>
+      </div>
+		
+        <div class="form-group" >
+        <label>Email</label>
+      
+        <input type="email" formControlName="email" name="email[]" class="form-control" required>
+      </div>
+       
+           <div class="form-group">
+        <label>City</label>
+        <input type="checkbox"  name="city[]" value="dehradun" >Dehradun
+        <input type="checkbox"  name="city[]" value="Chandigarh" >Chandigarh
+      </div> 
+        <div class="form-group">
+        <label>Address</label>
+        <textarea formControlName="address" name="address[]" col="5" row="5" required></textarea>
+      </div>        
+        <div class="docsfile" id="docsec{{i}}">
+        <label>Documents</label>
+        <input formControlName="docsfile" type="file" name="files" (change)="handleFileInput($event.target.files)" class="form-control" required>            
+        </div>
+           <button type="button" id="{{i}}" onclick="customAddFunction(this.id);">+</button>     
+        <div class="deleterow">
+        <button *ngIf="invoiceForm.controls.itemRows.controls.length > 1" (click)="deleteRow(i)" class="btn btn-danger">-Remove</button>
+        </div>
+       </div>
+  </div>
+   <button type="button" (click)="addNewRow()" class="btn btn-primary">+Add</button>
+   <div class="multiform">
+      <input type="submit" value="submit" class="btn btn-default">
+     </div>
+</form>
+</div>
+
+ 

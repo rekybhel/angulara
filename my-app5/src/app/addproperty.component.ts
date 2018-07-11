@@ -51,11 +51,11 @@ export class AddpropertyComponent {
     // add new formgroup
     control.push(this.initItemRows());
 }
-	handleFileInput(files: FileList) {
-		this.fileToUpload = files;
-		console.log(this.fileToUpload);
-		this.docsfile=this.fileToUpload;
-	}
+	//handleFileInput(files: FileList) {
+	///	this.fileToUpload = files;
+	//	console.log(this.fileToUpload);
+	//	this.docsfile=this.fileToUpload;
+	//}
 deleteRow(index: number) {
     // control refers to your formarray
     const control = <FormArray>this.invoiceForm.controls['itemRows'];

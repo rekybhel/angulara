@@ -15,7 +15,6 @@ export class LoginComponent implements OnInit {
     model: any = {};
     loading = false;
     returnUrl: string;
-
     constructor(
         private route: ActivatedRoute,
         private router: Router,
@@ -47,7 +46,7 @@ export class LoginComponent implements OnInit {
                     console.log(localStorage.getItem('currentUser'));   
                    this.router.navigate(['/home']);                          
                 }
-
+                }
                     if (data.msg == 'user not found') {
 
                     if (data.msg) {
@@ -59,13 +58,17 @@ export class LoginComponent implements OnInit {
                      this.loading = false;                        
                 }
                     
+                }
+                
                 },
                 error => {
                     this.alertService.error(error);
                     this.loading = false;
                 
                 });
-    }
+  
+
+
+
 }
-
-
+}
